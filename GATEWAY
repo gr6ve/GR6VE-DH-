@@ -1,1 +1,235 @@
- local i = Instance.new("\83\99\114\101\101\110\71\117\105") local l = Instance.new("\70\114\97\109\101") local t = Instance.new("\84\101\120\116\76\97\98\101\108") local p = Instance.new("\85\73\71\114\97\100\105\101\110\116") local e = Instance.new("\84\101\120\116\76\97\98\101\108") local m = Instance.new("\85\73\67\111\114\110\101\114") local o = Instance.new("\84\101\120\116\66\117\116\116\111\110") local b = Instance.new("\85\73\67\111\114\110\101\114") local n = Instance.new("\84\101\120\116\66\117\116\116\111\110") local m_3 = Instance.new("\85\73\67\111\114\110\101\114") local c = Instance.new("\84\101\120\116\76\97\98\101\108") i.Parent = game.Players.LocalPlayer:WaitForChild("\80\108\97\121\101\114\71\117\105") i.ZIndexBehavior = Enum.ZIndexBehavior.Sibling l.Parent = i l.BackgroundColor3 = Color3.fromRGB(0, 0, 0) l.BorderSizePixel = 0 l.Position = UDim2.new(0.0178217851, 0, 0.68443197, 0) l.Size = UDim2.new(0, 163, 0, 204) t.Name = "\72\79\79\68\32\77\79\68\68\69\68\32\80\79\82\84\65\76" t.Parent = l t.BackgroundColor3 = Color3.fromRGB(255, 255, 255) t.BorderColor3 = Color3.fromRGB(0, 0, 0) t.Size = UDim2.new(0, 163, 0, 36) t.ZIndex = 5 t.Font = Enum.Font.PermanentMarker t.Text = "\71\82\54\86\69\32\80\79\82\84\65\76" t.TextColor3 = Color3.fromRGB(0, 0, 0) t.TextSize = 29.000 t.TextWrapped = true p.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(115, 115, 115))} p.Parent = t e.Name = "\87\69\76\67\79\77\69" e.Parent = l e.BackgroundColor3 = Color3.fromRGB(134, 134, 134) e.Position = UDim2.new(0.0565466732, 0, 0.220588237, 0) e.Size = UDim2.new(0, 144, 0, 27) e.ZIndex = 5 e.Font = Enum.Font.SourceSans e.TextColor3 = Color3.fromRGB(0, 0, 0) e.TextSize = 24.000 m.Parent = e o.Name = "\83\73\76\69\78\84" o.Parent = l o.BackgroundColor3 = Color3.fromRGB(134, 134, 134) o.Position = UDim2.new(0.172790214, 0, 0.45588237, 0) o.Size = UDim2.new(0, 105, 0, 31) o.Font = Enum.Font.SourceSans o.Text = "\84\72\85\83\75\89\32\91\81\93" o.TextColor3 = Color3.fromRGB(0, 0, 0) o.TextSize = 14.000 b.Parent = o n.Name = "\65\85\84\79\83\84\79\77\80" n.Parent = l n.BackgroundColor3 = Color3.fromRGB(134, 134, 134) n.Position = UDim2.new(0.172790214, 0, 0.666666746, 0) n.Size = UDim2.new(0, 105, 0, 31) n.Font = Enum.Font.SourceSans n.Text = "\78\89\85\76\65" n.TextColor3 = Color3.fromRGB(0, 0, 0) n.TextSize = 14.000 m_3.Parent = n c.Name = "\67\82\69\68\73\84" c.Parent = l c.BackgroundColor3 = Color3.fromRGB(0, 0, 0) c.BorderColor3 = Color3.fromRGB(0, 0, 0) c.Position = UDim2.new(0.134031385, 0, 0.878062844, 0) c.Size = UDim2.new(0, 117, 0, 24) c.Font = Enum.Font.SciFi c.Text = "\98\101\108\105\101\102\35\52\56\54\55" c.TextColor3 = Color3.fromRGB(255, 255, 255) c.TextSize = 14.000 local function f()  local _ = Instance.new('LocalScript', e) _.Parent.Text = "\87\101\108\99\111\109\101\32".. game.Players.LocalPlayer.Name end coroutine.wrap(f)() local function q()  local _ = Instance.new('LocalScript', l) local f_ = game:GetService("\85\115\101\114\73\110\112\117\116\83\101\114\118\105\99\101") local qf = _.Parent local sq local a local r local k local function s(j) local jk = j.Position - r qf.Position = qf:TweenPosition(UDim2.new(k.X.Scale, k.X.Offset + jk.X, k.Y.Scale, k.Y.Offset + jk.Y), 'Out', 'Linear', 0, true);  end qf.InputBegan:Connect(function(j) if j.UserInputType == Enum.UserInputType.MouseButton1 or j.UserInputType == Enum.UserInputType.Touch then sq = true r = j.Position k = qf.Position j.Changed:Connect(function() if j.UserInputState == Enum.UserInputState.End then sq = false end end) end end) qf.InputChanged:Connect(function(j) if j.UserInputType == Enum.UserInputType.MouseMovement or j.UserInputType == Enum.UserInputType.Touch then a = j end end) f_.InputChanged:Connect(function(j) if j == a and sq then s(j) end end) end coroutine.wrap(q)() 
+ 
+-- modified by lxs --
+ 
+ 
+getgenv().Enabled = true
+getgenv().Aimlockkey = "q"
+getgenv().Prediction = 0.11529944882
+getgenv().Aimpart = "HumanoidRootPart"
+getgenv().Notifications = true
+getgenv().Color = Color3.fromRGB(153, 50, 204)
+getgenv().FOV = false
+getgenv().Notifications = true
+getgenv().Colorr = Color3.fromRGB(153, 50, 204)
+getgenv().Transparency = 1
+getgenv().Thickness = 3.5
+ 
+ 
+local CurrentCamera = game:GetService("Workspace").CurrentCamera
+local Inset = game:GetService("GuiService"):GetGuiInset().Y
+local RunService = game:GetService("RunService")
+ 
+local Mouse = game.Players.LocalPlayer:GetMouse()
+local LocalPlayer = game.Players.LocalPlayer
+ 
+local Line = Drawing.new("Line")
+local Circle = Drawing.new("Circle")
+ 
+local Plr
+ 
+Mouse.KeyDown:Connect(function(KeyPressed)
+    if KeyPressed == (getgenv().Aimlockkey) then
+        if getgenv().Enabled == true then
+            getgenv().Enabled = false
+            if getgenv().Notifications == true then
+                Plr = FindClosestPlayer()
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Private",
+                    Text = "Unlocked"
+                })
+            end
+        else
+            Plr = FindClosestPlayer()
+            getgenv().Enabled = true
+            if getgenv().Notifications == true then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Private",
+                    Text = "Locked On :  " .. tostring(Plr.Character.Humanoid.DisplayName)
+                })
+            end
+        end
+    end
+end)
+ 
+function FindClosestPlayer()
+    local ClosestDistance, ClosestPlayer = math.huge, nil;
+    for _, Player in next, game:GetService("Players"):GetPlayers() do
+        local ISNTKNOCKED = Player.Character:WaitForChild("BodyEffects")["K.O"].Value ~= true
+        local ISNTGRABBED = Player.Character:FindFirstChild("GRABBING_COINSTRAINT") == nil
+ 
+        if Player ~= LocalPlayer then
+            local Character = Player.Character
+            if Character and Character.Humanoid.Health > 1 and ISNTKNOCKED and ISNTGRABBED then
+                local Position, IsVisibleOnViewPort = CurrentCamera:WorldToViewportPoint(Character.HumanoidRootPart
+                                                                                             .Position)
+                if IsVisibleOnViewPort then
+                    local Distance = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Position.X, Position.Y)).Magnitude
+                    if Distance < ClosestDistance then
+                        ClosestPlayer = Player
+                        ClosestDistance = Distance
+                    end
+                end
+            end
+        end
+    end
+    return ClosestPlayer, ClosestDistance
+end
+ 
+RunService.Heartbeat:connect(function()
+    if getgenv().Enabled == true then
+        local Vector = CurrentCamera:WorldToViewportPoint(Plr.Character[getgenv().Aimpart].Position +
+                                                              (Plr.Character[getgenv().Aimpart].Velocity*Prediction))
+        Line.Color = getgenv().Colorr
+        Line.Transparency = getgenv().Transparency
+        Line.Thickness = getgenv().Thickness
+        Line.From = Vector2.new(Mouse.X, Mouse.Y + Inset)
+        Line.To = Vector2.new(Vector.X, Vector.Y)
+        Line.Visible = true
+        Circle.Position = Vector2.new(Mouse.X, Mouse.Y + Inset)
+        Circle.Visible = getgenv().FOV
+        Circle.Thickness = 1.5
+        Circle.Thickness = 2
+        Circle.Radius = 60
+        Circle.Color = getgenv().Color
+ 
+    else
+        Line.Visible = false
+        Circle.Visible = false
+    end
+end)
+ 
+ 
+local rawmetatable = getrawmetatable(game)
+local old = rawmetatable.__namecall
+setreadonly(rawmetatable, false)
+rawmetatable.__namecall = newcclosure(function(...)
+    local args = {...}
+    if getgenv().Enabled and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
+        args[3] = Plr.Character[getgenv().Aimpart].Position+(Plr.Character[getgenv().Aimpart].Velocity*Prediction)
+        return old(unpack(args))
+    end
+    return old(...)
+end)
+ 
+ 
+ 
+--[[
+████████ ██   ██ ██    ██ ███████ ██   ██ ██    ██ 
+   ██    ██   ██ ██    ██ ██      ██  ██   ██  ██  
+   ██    ███████ ██    ██ ███████ █████     ████   
+   ██    ██   ██ ██    ██      ██ ██  ██     ██    
+   ██    ██   ██  ██████  ███████ ██   ██    ██                                               
+]]
+local Settings = {
+    AimLock = {
+        Enabled = true,
+        Aimlockkey = "q",
+        Prediction = 0.11567724521,
+        Aimpart = 'HumanoidRootPart',
+        Notifications = false
+    },
+    Settings = {
+        Thickness = 3.5,
+        Transparency = 1,
+        Color = Color3.fromRGB(153, 50, 204),
+        FOV = false
+    }
+ 
+}
+ 
+local CurrentCamera = game:GetService("Workspace").CurrentCamera
+local Inset = game:GetService("GuiService"):GetGuiInset().Y
+local RunService = game:GetService("RunService")
+ 
+local Mouse = game.Players.LocalPlayer:GetMouse()
+local LocalPlayer = game.Players.LocalPlayer
+ 
+local Line = Drawing.new("Line")
+local Circle = Drawing.new("Circle")
+ 
+local Plr
+ 
+Mouse.KeyDown:Connect(function(KeyPressed)
+    if KeyPressed == (Settings.AimLock.Aimlockkey) then
+        if Settings.AimLock.Enabled == true then
+            Settings.AimLock.Enabled = false
+            if Settings.AimLock.Notifications == true then
+                Plr = FindClosestPlayer()
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Private",
+                    Text = "Unlocked"
+                })
+            end
+        else
+            Plr = FindClosestPlayer()
+            Settings.AimLock.Enabled = true
+            if Settings.AimLock.Notifications == true then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Private",
+                    Text = "Locked On :  " .. tostring(Plr.Character.Humanoid.DisplayName)
+                })
+            end
+        end
+    end
+end)
+ 
+function FindClosestPlayer()
+    local ClosestDistance, ClosestPlayer = math.huge, nil;
+    for _, Player in next, game:GetService("Players"):GetPlayers() do
+        local ISNTKNOCKED = Player.Character:WaitForChild("BodyEffects")["K.O"].Value ~= true
+        local ISNTGRABBED = Player.Character:FindFirstChild("GRABBING_COINSTRAINT") == nil
+ 
+        if Player ~= LocalPlayer then
+            local Character = Player.Character
+            if Character and Character.Humanoid.Health > 1 and ISNTKNOCKED and ISNTGRABBED then
+                local Position, IsVisibleOnViewPort = CurrentCamera:WorldToViewportPoint(Character.HumanoidRootPart
+                                                                                             .Position)
+                if IsVisibleOnViewPort then
+                    local Distance = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Position.X, Position.Y)).Magnitude
+                    if Distance < ClosestDistance then
+                        ClosestPlayer = Player
+                        ClosestDistance = Distance
+                    end
+                end
+            end
+        end
+    end
+    return ClosestPlayer, ClosestDistance
+end
+ 
+RunService.Heartbeat:connect(function()
+    if Settings.AimLock.Enabled == true then
+        local Vector = CurrentCamera:WorldToViewportPoint(Plr.Character[Settings.AimLock.Aimpart].Position +
+                                                              (Plr.Character[Settings.AimLock.Aimpart].Velocity *
+                                                              Settings.AimLock.Prediction))
+        Line.Color = Settings.Settings.Color
+        Line.Transparency = Settings.Settings .Transparency
+        Line.Thickness = Settings.Settings .Thickness
+        Line.From = Vector2.new(Mouse.X, Mouse.Y + Inset)
+        Line.To = Vector2.new(Vector.X, Vector.Y)
+        Line.Visible = true
+        Circle.Position = Vector2.new(Mouse.X, Mouse.Y + Inset)
+        Circle.Visible = Settings.Settings.FOV
+        Circle.Thickness = 1.5
+        Circle.Thickness = 2
+        Circle.Radius = 60
+        Circle.Color = Settings.Settings.Color
+    elseif Settings.AimLock.FOV == true then
+        Circle.Visible = true
+    else
+        Circle.Visible = true
+        Line.Visible = true
+    end
+end)
+ 
+local rawmetatable = getrawmetatable(game)
+local old = rawmetatable.__namecall
+setreadonly(rawmetatable, false)
+rawmetatable.__namecall = newcclosure(function(...)
+    local args = {...}
+    if Settings.AimLock.Enabled and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
+        args[3] = Plr.Character[Settings.AimLock.Aimpart].Position+(Plr.Character[Settings.AimLock.Aimpart].Velocity*Settings.AimLock.Prediction)
+        return old(unpack(args))
+    end
+    return old(...)
+end)
