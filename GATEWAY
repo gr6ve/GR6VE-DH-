@@ -215,9 +215,9 @@ RunService.Heartbeat:connect(function()
         Circle.Radius = 60
         Circle.Color = Settings.Settings.Color
     elseif Settings.AimLock.FOV == true then
-        Circle.Visible = true
+        Circle.Visible = false
     else
-        Circle.Visible = true
+        Circle.Visible = false
         Line.Visible = true
     end
 end)
